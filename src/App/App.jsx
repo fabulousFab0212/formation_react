@@ -1,29 +1,21 @@
-import React from 'react';
-import './App.css';
-import Button from './components/ui/Button/Button'
-
-
+import React from "react";
+import "./App.css";
+import Button from "./components/ui/Button/Button";
 
 function App() {
-
   return (
-
     <div className="App">
-      <Button text="mon texte de button"></Button>
-      <Button>texte children</Button>
+      {/* <Button text="Un texte de button"></Button> */}
+      <Button>du texte children</Button>
       <Button>
-        <div>texte children node</div>
+        <div>text children node</div>
       </Button>
       <Button>
-        <div>texte children node1</div>
-        <div>texte children node2</div>
+        <div>text children node1</div>
+        <div>text children node2</div>
       </Button>
     </div>
-
   );
-
 }
-
-
 
 export default App;
