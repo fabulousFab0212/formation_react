@@ -1,0 +1,53 @@
+{
+    "memes":[
+        {
+            "id":0,
+            "titre":"titre meme 0",
+            "text":"Mon meme 0",
+            "x":100,
+            "y":100,
+            "fontSize":12,
+            "fontWeight":700,
+            "color":"#ADE0F1",
+            "underline":true,
+            "italic":false,
+            "imageId":0
+        },
+        {
+            "id":1,
+            "titre":"titre meme 1",
+            "text":"Mon meme 1",
+            "x":100,
+            "y":100,
+            "fontSize":12,
+            "fontWeight":700,
+            "color":"#ADE0F1",
+            "underline":true,
+            "italic":false,
+            "imageId":1
+        }
+    ],
+    "images":[
+        {
+            "id":0,
+            "title":"FCL",
+            "href":"logo_fcl.jpg",
+            "w":188,
+            "h":268
+        },
+        {
+            "id":0,
+            "title":"LANCELOT",
+            "href":"logo_lancelot.JPG",
+            "w":296,
+            "h":169
+        },
+        {
+            "id":0,
+            "title":"LORIENT",
+            "href":"port_lorient.jpg",
+            "w":276,
+            "h":183
+        }
+    ]
+}

@@ -1,11 +1,19 @@
 import React from 'react';
 import Button from './components/ui/Button/Button';
+import { ADR_REST } from './config/config';
 
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state={counter:1, title:'Mon Titre'}
+    this.state={memes:[], images:[]}
   }
+
+  componentDidMount(){
+    const memes = fetch(ADR_REST+'/memes').then(flux=>flux.json())
+    const images = fetch(ADR_REST+'/images').then(flux=>flux.json())
+    Promise.all([memes,images]).then(arr=>this.setState({memes:arr[0],images:arr[1]}))
+  }
+
 
   componentDidUpdate(oldProps,oldState){
     console.log("component update : ", oldState, this.state)
@@ -14,30 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-          Valeur du counter : {this.state.counter}
-          <hr/>
-
-          <Button
-            bgColor="blue"
-            onButtonClicked={
-              ()=>{
-                this.setState({counter:this.state.counter+1});
-              }
-            }
-          >
-            Ajouter 1
-          </Button>
-          <hr/>
-
-          <Button
-            onButtonClicked={
-              ()=>{
-                this.setState({counter:this.state.counter-1});
-              }
-            }
-          >
-            Enlever 1
-          </Button>
+          {JSON.stringify(this.state)}
       </div>
     );
   }
