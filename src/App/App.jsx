@@ -6,11 +6,11 @@ function App() {
   return (
     <div className="App">
       {/* <Button text="Un texte de button"></Button> */}
-      <Button>du texte children</Button>
+      <Button bgColor="blue" color="black"></Button>
       <Button>
         <div>text children node</div>
       </Button>
-      <Button>
+      <Button bgColor="aquamarine" color="red">
         <div>text children node1</div>
         <div>text children node2</div>
       </Button>
