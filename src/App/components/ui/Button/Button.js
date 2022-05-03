@@ -1,11 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import style from './Button.module.css'
 import PropTypes from 'prop-types';
+
+let descripteurSetTimeout=undefined;
 
 const Button = (props)=>{
     // console.log(props)
 
     const [isClicked, setIsClicked] = useState(false);
+    useEffect(() => {
+        console.log('isClicked a changer ->',isClicked)
+        if(true===isClicked && descripteurSetTimeout===undefined){
+            descripteurSetTimeout = setTimeout(()=>{setIsClicked(false); descripteurSetTimeout = undefined; },2000);
+        }        
+    }, [isClicked]);
 
     return (
         <button
