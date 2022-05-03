@@ -16,7 +16,7 @@ class App extends React.Component {
       <div className='App'>
           Valeur du counter : {this.state.counter}
           <hr/>
-          
+
           <Button
             bgColor="blue"
             onButtonClicked={
