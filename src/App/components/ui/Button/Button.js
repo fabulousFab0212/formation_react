@@ -17,7 +17,8 @@ const Button = (props)=>{
 
     return (
         <button
-            className={style.Button}
+            // className={style.Button}
+            className={`${style.Button}${isClicked?' '+style.clicked:''}`}
             style={ {...props.style, backgroundColor:props.bgColor, color:props.color} }
             type={props.type}
             onClick={(evt)=>{
@@ -26,8 +27,8 @@ const Button = (props)=>{
             }}
         >
             {props.children}
-            <br/>
-            {isClicked.toString()}
+            {/* <br/>
+            {isClicked.toString()} */}
         </button>
     );
 }

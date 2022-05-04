@@ -22,6 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+          <Button>test </Button>
           {JSON.stringify(this.state)}
       </div>
     );

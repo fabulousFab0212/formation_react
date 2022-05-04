@@ -36,17 +36,24 @@
             "h":268
         },
         {
-            "id":0,
+            "id":1,
             "title":"LANCELOT",
             "href":"logo_lancelot.JPG",
             "w":296,
             "h":169
         },
         {
-            "id":0,
+            "id":2,
             "title":"LORIENT",
             "href":"port_lorient.jpg",
             "w":276,
+            "h":183
+        },
+        {
+            "id":3,
+            "title":"BEURRE",
+            "href":"paysan_breton.jpg",
+            "w":275,
             "h":183
         }
     ]
