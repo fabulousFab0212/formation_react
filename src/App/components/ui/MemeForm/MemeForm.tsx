@@ -1,8 +1,10 @@
 import React from "react";
 
 import styles from "./MemeForm.module.css";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import { IImage,IMeme } from "orsys-tjs-meme/dist/interfaces/common";
+import { ACTIONS_CURRENT } from "../../../store/store";
+import { connect } from "react-redux";
 
 interface IMemeFormProps{
   images:Array<IImage>,
@@ -181,4 +183,19 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
   );
 };
 
+function mapStateToProps(state,ownprops){
+  return {
+    ...ownprops,
+    images:state.ressources.images,
+    meme:state.current
+  }
+}
+
+function mapDispatchtoProps(dispatch){
+  return{
+    onFormChange:(objt:any)=>{dispatch({type:ACTIONS_CURRENT.UPDATE_MEME, value:objt})}
+  }
+}
+
+export const ConnectedMemeForm=connect(mapStateToProps, mapDispatchtoProps)(MemeForm);
 export default MemeForm;

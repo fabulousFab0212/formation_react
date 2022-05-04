@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+//import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import style from "./MemeThumbnail.module.css";
  import { IImage,IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { MemeSVGViewer } from "orsys-tjs-meme";
 // import { IImage,IMeme} from '../../../interfaces/common';
+import {connect} from "react-redux";
 
 const memeThumbnailInitialState = {};
 
@@ -35,4 +36,17 @@ const MemeThumbnail:React.FunctionComponent<{images:Array<IImage>,memes:Array<IM
  };
 // MemeThumbnail.defaultProps = {};
 
+function mapStateToProps(state:any,ownprops:any){
+  return {
+    ...ownprops,
+    memes:state.ressources.memes,
+    images:state.ressources.images
+  }
+}
+
+function mapDispatchtoProps(dispatch){
+  return {}
+}
+
+export const ConnectdedMemeThumbnail=connect(mapStateToProps,mapDispatchtoProps)(MemeThumbnail);
 export default MemeThumbnail;
