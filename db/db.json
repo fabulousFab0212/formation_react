@@ -3,7 +3,7 @@
         {
             "id":0,
             "titre":"titre meme 0",
-            "text":"Mon meme 0",
+            "text":"le football c'est la fête, la fête c'est le football",
             "x":100,
             "y":100,
             "fontSize":12,
@@ -24,35 +24,35 @@
             "color":"#ADE0F1",
             "underline":true,
             "italic":false,
-            "imageId":1
+            "imageId":3
         }
     ],
     "images":[
         {
             "id":0,
             "title":"FCL",
-            "href":"logo_fcl.jpg",
+            "url":"logo_fcl.jpg",
             "w":188,
             "h":268
         },
         {
             "id":1,
             "title":"LANCELOT",
-            "href":"logo_lancelot.JPG",
+            "url":"logo_lancelot.JPG",
             "w":296,
             "h":169
         },
         {
             "id":2,
             "title":"LORIENT",
-            "href":"port_lorient.jpg",
+            "url":"port_lorient.jpg",
             "w":276,
             "h":183
         },
         {
             "id":3,
             "title":"BEURRE",
-            "href":"paysan_breton.jpg",
+            "url":"paysan_breton.jpg",
             "w":275,
             "h":183
         }
