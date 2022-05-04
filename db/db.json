@@ -30,28 +30,28 @@
     "images":[
         {
             "id":0,
-            "title":"FCL",
+            "name":"FCL",
             "url":"logo_fcl.jpg",
             "w":188,
             "h":268
         },
         {
             "id":1,
-            "title":"LANCELOT",
+            "name":"LANCELOT",
             "url":"logo_lancelot.JPG",
             "w":296,
             "h":169
         },
         {
             "id":2,
-            "title":"LORIENT",
+            "name":"LORIENT",
             "url":"port_lorient.jpg",
             "w":276,
             "h":183
         },
         {
             "id":3,
-            "title":"BEURRE",
+            "name":"BEURRE",
             "url":"paysan_breton.jpg",
             "w":275,
             "h":183

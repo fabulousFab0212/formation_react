@@ -3,6 +3,7 @@ import Button from './components/ui/Button/Button';
 import FlexW from './components/layout/FlexW/FlexW';
 import { ADR_REST } from './config/config';
 import {MemeSVGViewer} from "orsys-tjs-meme"
+import MemeForm from './components/ui/MemeForm/MemeForm';
 
 class App extends React.Component {
   constructor(props){
@@ -24,16 +25,19 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-          <Button>test </Button>
+          {/* <Button>test </Button>
           <hr/>
           {JSON.stringify(this.state)}
-          <hr/>
+          <hr/> */}
           <FlexW>
             {this.state.memes.length && 
               <MemeSVGViewer
                 meme={this.state.memes[0]}
                 image={this.state.images.find(e=>e.id===this.state.memes[0].imageId)}>
               </MemeSVGViewer>}
+              <MemeForm images={this.state.images}>
+
+              </MemeForm>
           </FlexW>
           
       </div>
