@@ -2,20 +2,41 @@ import React from "react";
 
 import styles from "./MemeForm.module.css";
 import PropTypes from "prop-types";
-import { IImage } from "orsys-tjs-meme/dist/interfaces/common";
+import { IImage,IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 
 interface IMemeFormProps{
-  images:Array<IImage>
+  images:Array<IImage>,
+  meme:IMeme,
+  onFormChange:Function
 }
 
-class CMemeFormProps{
-  constructor(){ 
-    this.images=[]
-  }
-  images:Array<IImage>
-}
+// class CMemeFormProps{
+//   constructor(){ 
+//     this.images=[]
+//   }
+//   images:Array<IImage>
+// }
 
 const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
+
+  function onTextChange(evt:React.ChangeEvent<HTMLInputElement>){
+    const assembledResult={};
+    assembledResult[evt.target.name]=evt.target.value;
+    props.onFormChange(assembledResult);
+  }
+
+  function onNumberChange(evt:React.ChangeEvent<HTMLInputElement>|React.ChangeEvent<HTMLSelectElement>){
+      const assembledResult={};
+      assembledResult[evt.target.name]=Number(evt.target.value);
+      props.onFormChange(assembledResult);
+  }
+
+  function onCheckedChange(evt:React.ChangeEvent<HTMLInputElement>){
+    const assembledResult={};
+    assembledResult[evt.target.name]=evt.target.checked;
+    props.onFormChange(assembledResult);
+}
+
   return (
        <div data-testid="MemeForm" className={styles.MemeForm}>
         <form >
@@ -23,12 +44,17 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
           <input
             type="text"
             id="f_titre"
+            name="titre"
             placeholder="saisir titre"
+            value={props.meme.titre}
+            onChange={onTextChange} //version via fonction
              />
           <hr />
           <h2>Image</h2>
           <select
-           
+           value={props.meme.imageId}
+           name="imageId"
+           onChange={onNumberChange}
           >
             <option value="-1">Aucune</option>
             {
@@ -40,7 +66,12 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
           <h2>text</h2>
           <input
             type="text"
-           
+            name="text"
+            value={props.meme.text}
+            onChange={(evt)=>{
+              console.log(evt);
+              props.onFormChange({text:evt.target.value}) //version "manuelle"
+            }}
           />
           <div className={styles.half}>
             <div>
@@ -48,8 +79,13 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 type="number"
+                name="x"
                 className={styles.smallInput}
-              
+                value={props.meme.x}
+                onChange={(evt)=>{
+                  console.log(evt);
+                  props.onFormChange({x:evt.target.value})
+                }}
               />
             </div>
             <div>
@@ -57,8 +93,13 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 type="number"
+                name="y"
                 className={styles.smallInput}
-                
+                value={props.meme.y}
+                onChange={(evt)=>{
+                  console.log(evt);
+                  props.onFormChange({y:evt.target.value})
+                }}
               />
             </div>
           </div>
@@ -67,7 +108,9 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
           <input
             type="color"
             id="f_color"
-           
+            name="color"
+            value={props.meme.color}
+            onChange={onTextChange}
           />
           <div className={styles.half}>
             <div>
@@ -75,10 +118,14 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 type="number"
+                name="fontSize"
                 className={styles.smallInput}
-                
                 min={0}
-               
+                value={props.meme.fontSize}
+                onChange={(evt)=>{
+                  console.log(evt);
+                  props.onFormChange({fontSize:evt.target.value})
+                }}
               />
             </div>
             <div>
@@ -86,11 +133,16 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 type="number"
+                name="fontWeight"
                 className={styles.smallInput}
                 min="100"
                 step="100"
                 max="900"
-               
+                value={props.meme.fontWeight}
+                onChange={(evt)=>{
+                  console.log(evt);
+                  props.onFormChange({fontWeight:evt.target.value}) //version "manuelle"
+                }}
               />
             </div>
           </div>
@@ -100,8 +152,13 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 id="f_underline"
+                name="underline"
                 type="checkbox"
-                
+                checked={props.meme.underline}
+                onChange={(evt)=>{
+                  console.log(evt);
+                  props.onFormChange({underline:evt.target.checked}) //version "manuelle"
+                }}
               />
             </div>
             <div>
@@ -109,8 +166,10 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
               <br />
               <input
                 id="f_italic"
+                name="italic"
                 type="checkbox"
-               
+                checked={props.meme.italic}
+                onChange={onCheckedChange} //version via fonction
               />
             </div>
           </div>
