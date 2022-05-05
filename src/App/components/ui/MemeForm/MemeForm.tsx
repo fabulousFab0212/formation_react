@@ -5,11 +5,14 @@ import styles from "./MemeForm.module.css";
 import { IImage,IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { ACTIONS_CURRENT } from "../../../store/store";
 import { connect } from "react-redux";
+import Button from "../Button/Button";
 
 interface IMemeFormProps{
-  images:Array<IImage>,
-  meme:IMeme,
-  onFormChange:Function
+  images:Array<IImage>;
+  meme:IMeme;
+  onFormChange:Function;
+  onFormSubmit:Function;
+  onFormReset:Function;
 }
 
 // class CMemeFormProps{
@@ -41,7 +44,15 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
 
   return (
        <div data-testid="MemeForm" className={styles.MemeForm}>
-        <form >
+        <form onSubmit={(evt:React.FormEvent<HTMLFormElement>)=>{
+          evt.preventDefault();
+          props.onFormSubmit();
+        }}
+        
+        onReset={(evt:React.FormEvent<HTMLFormElement>)=>{
+          props.onFormReset();
+        }}
+        >
           <h1>Titre</h1>
           <input
             type="text"
@@ -176,7 +187,8 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
             </div>
           </div>
           <div className={styles.half}>
-           
+                <Button type="reset" bgColor="red">Reinit</Button>
+                <Button type="submit" bgColor="blue">Save</Button>
           </div>
         </form>
       </div>
@@ -193,7 +205,9 @@ function mapStateToProps(state,ownprops){
 
 function mapDispatchtoProps(dispatch){
   return{
-    onFormChange:(objt:any)=>{dispatch({type:ACTIONS_CURRENT.UPDATE_MEME, value:objt})}
+    onFormChange:(objt:any)=>{dispatch({type:ACTIONS_CURRENT.UPDATE_MEME, value:objt})},
+    onFormSubmit:()=>{dispatch({type:ACTIONS_CURRENT.SAVE_MEME});},
+    onFormReset:()=>{dispatch({type:ACTIONS_CURRENT.CLEAR_CURRENT});},
   }
 }
 

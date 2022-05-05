@@ -5,6 +5,10 @@ import App from './App/App';
 import {Provider} from "react-redux";
 import {store} from './App/store/store'
 //import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +16,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>
 );

@@ -37,7 +37,9 @@ function ressourcesReducer(state=ressourceInitialState,action){
 
 
 export const ACTIONS_CURRENT=Object.freeze({
-    UPDATE_MEME:'UPDATE_MEME'
+    UPDATE_MEME:'UPDATE_MEME',
+    SAVE_MEME:'SAVE_MEME',
+    CLEAR_CURRENT:'CLEAR_CURRENT',
 })
 
 /**
@@ -50,6 +52,22 @@ export const ACTIONS_CURRENT=Object.freeze({
 
     case ACTIONS_CURRENT.UPDATE_MEME:
         return { ...state, ...action.value }
+
+    case ACTIONS_CURRENT.SAVE_MEME:
+        fetch(`${ADR_REST}/memes${undefined!==state.id?'/'+state.id:''}`,
+        {
+            method:`${undefined!==state.id?'PUT':'POST'}`,
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(state),
+        }).then((flux) => flux.json()
+        ).then(o=>{store.dispatch({type : ACTION_RESSOURCE.ADD_MEME, value:o})});
+
+        return state;
+    
+    case ACTIONS_CURRENT.CLEAR_CURRENT:
+        return { ...DummyMeme};
+    case ACTION_RESSOURCE.ADD_SAVE_MEME:
+        return { ...DummyMeme};
 
     default:
         return state

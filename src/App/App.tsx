@@ -5,10 +5,12 @@ import FlexW from './components/layout/FlexW/FlexW';
 import  { ConnectedMemeForm } from './components/ui/MemeForm/MemeForm';
 import  {ConnectdedMemeThumbnail } from './components/ui/MemeThumbnail/MemeThumbnail';
 import ConnectedMemeViewer from './components/ui/ConnectedMemeViewer/ConnectedMemeViewer';
+import NavBar from './components/ui/NavBar/NavBar';
 
 const App = () => {
     return (
       <div className='App'>
+          <NavBar/>
           <ConnectdedMemeThumbnail/>
           <FlexW>
               <ConnectedMemeViewer/>

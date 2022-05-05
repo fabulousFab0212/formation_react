@@ -1,60 +1,86 @@
 {
-    "memes":[
-        {
-            "id":0,
-            "titre":"titre meme 0",
-            "text":"le football c'est la fête, la fête c'est le football",
-            "x":100,
-            "y":100,
-            "fontSize":12,
-            "fontWeight":700,
-            "color":"#ADE0F1",
-            "underline":true,
-            "italic":false,
-            "imageId":0
-        },
-        {
-            "id":1,
-            "titre":"titre meme 1",
-            "text":"Mon meme 1",
-            "x":100,
-            "y":100,
-            "fontSize":12,
-            "fontWeight":700,
-            "color":"#ADE0F1",
-            "underline":true,
-            "italic":false,
-            "imageId":3
-        }
-    ],
-    "images":[
-        {
-            "id":0,
-            "name":"FCL",
-            "url":"logo_fcl.jpg",
-            "w":188,
-            "h":268
-        },
-        {
-            "id":1,
-            "name":"LANCELOT",
-            "url":"logo_lancelot.JPG",
-            "w":296,
-            "h":169
-        },
-        {
-            "id":2,
-            "name":"LORIENT",
-            "url":"port_lorient.jpg",
-            "w":276,
-            "h":183
-        },
-        {
-            "id":3,
-            "name":"BEURRE",
-            "url":"paysan_breton.jpg",
-            "w":275,
-            "h":183
-        }
-    ]
+  "memes": [
+    {
+      "id": 0,
+      "titre": "titre meme 0",
+      "text": "le football c'est la fête, la fête c'est le football",
+      "x": 100,
+      "y": 100,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "color": "#ADE0F1",
+      "underline": true,
+      "italic": false,
+      "imageId": 0
+    },
+    {
+      "id": 1,
+      "titre": "titre meme 1",
+      "text": "Mon meme 1",
+      "x": 100,
+      "y": 100,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "color": "#ADE0F1",
+      "underline": true,
+      "italic": false,
+      "imageId": 3
+    },
+    {
+      "titre": "",
+      "text": "texte nouveau meme",
+      "x": 0,
+      "y": 17,
+      "fontWeight": "500",
+      "fontSize": 30,
+      "underline": false,
+      "italic": false,
+      "imageId": 2,
+      "color": "#000000",
+      "id": 2
+    },
+    {
+      "titre": "titre nouveau meme 2",
+      "text": "texte  nouveau meme 2",
+      "x": 0,
+      "y": 17,
+      "fontWeight": "500",
+      "fontSize": 30,
+      "underline": false,
+      "italic": false,
+      "imageId": 0,
+      "color": "#de6b0d",
+      "id": 3
+    }
+  ],
+  "images": [
+    {
+      "id": 0,
+      "name": "FCL",
+      "url": "logo_fcl.jpg",
+      "w": 188,
+      "h": 268
+    },
+    {
+      "id": 1,
+      "name": "LANCELOT",
+      "url": "logo_lancelot.JPG",
+      "w": 296,
+      "h": 169
+    },
+    {
+      "id": 2,
+      "name": "LORIENT",
+      "url": "port_lorient.jpg",
+      "w": 276,
+      "h": 183
+    },
+    {
+      "id": 3,
+      "name": "BEURRE",
+      "url": "paysan_breton.jpg",
+      "w": 275,
+      "h": 183
+    }
+  ]
 }
